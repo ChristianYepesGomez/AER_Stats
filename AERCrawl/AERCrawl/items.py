@@ -4,7 +4,7 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 import scrapy
-from itemloaders.processors import TakeFirst, MapCompose
+from itemloaders.processors import Join, TakeFirst
 
 
 # Class Problem to scrap data from webpage and save it
@@ -53,6 +53,7 @@ class Category(scrapy.Item):
     id = scrapy.Field()
     name = scrapy.Field()
     related_category = scrapy.Field()
+    problems_category = scrapy.Field()
 
 
 # Class Institution to scrap data from webpage and save it
@@ -63,3 +64,7 @@ class Institution(scrapy.Item):
     shipments = scrapy.Field()
     users = scrapy.Field()
     logo_src = scrapy.Field()
+
+class CategoryProblem(scrapy.Item):
+    idProblem = scrapy.Field()
+    idCategory = scrapy.Field()
